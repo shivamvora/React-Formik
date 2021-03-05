@@ -1,5 +1,5 @@
 import React from 'react'
-import { useField } from 'formik';
+import { ErrorMessage, useField } from 'formik';
 
 const TextField = ( { label, ...props } ) => {
     const [field, meta] = useField( props );
@@ -9,6 +9,7 @@ const TextField = ( { label, ...props } ) => {
                 {label}
             </label>
             <input type="text" className="form-control shadow-none" {...field} {...props} autoComplete="off" />
+            <ErrorMessage name={field.name} />
         </div>
     )
 }

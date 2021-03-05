@@ -7,18 +7,22 @@ const SignUp = () => {
     const validate = Yup.object( {
         firstName: Yup.string().max( 20, "Must be 20 Character or less" ).required( 'Required' ),
         lastName: Yup.string().max( 20, "Must be 20 Character or less" ).required( 'Required' ),
-        email: Yup.string().max( "Email is Invalid" ).required( 'Email is Required' ),
+        email: Yup.string().max( 40, "Email is Invalid" ).required( 'Email is Required' ),
         password: Yup.string().min( 6, "Password must be at least six character" ).required( 'Password is Required' ),
         conFirmPassword: Yup.string().oneOf( [Yup.ref( 'password' ), null], "Password Must Match" ).required( 'Confirm Password is Required' )
     } )
     return (
-        <Formik initialValues={{ firstName: '', lastName: '', email: '', password: '', conFirmPassword: '' }} validationSchema={validate}>
+        <Formik initialValues={{ firstName: '', lastName: '', email: '', password: '', conFirmPassword: '' }} validationSchema={validate}
+            onSubmit={values => {
+                console.log( values );
+            }}
+        >
             {formik => (
                 <div>
                     <h1 className="my-4 font-weight-bold-display-4">
                         Register
                     </h1>
-                    {console.log( formik.values )}
+
                     <Form>
                         <TextField label="First Name" name="firstName" type="text" />
                         <TextField label="Last Name" name="lastName" type="text" />

@@ -7,10 +7,10 @@ const App = () => {
     return (
         <div className="container mt-3">
             <div className="row">
-                <div className="col-md-">
+                <div className="col-md-4">
                     <SignUp />
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-7 my-auto">
                     <img className="img-fluid w-100" src={rocketImg} alt="check source" />
                 </div>
             </div>

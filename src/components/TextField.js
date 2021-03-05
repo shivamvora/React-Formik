@@ -8,8 +8,8 @@ const TextField = ( { label, ...props } ) => {
             <label htmlFor={field.name}>
                 {label}
             </label>
-            <input type="text" className="form-control shadow-none" {...field} {...props} autoComplete="off" />
-            <ErrorMessage name={field.name} />
+            <input type="text" className={`form-control shadow-none  ${meta.touched && meta.error && `is-invalid`}`} {...field} {...props} autoComplete="off" />
+            <ErrorMessage component="div" name={field.name} className="error" />
         </div>
     )
 }
